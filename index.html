@@ -19,7 +19,7 @@
         <input class="form-control" placeholder="Search Name" data-ng-model='searchTerm.name'>
         <input class="form-control" placeholder="Search Location" data-ng-model='searchLoc'>
 
-        <select class="input-medium">
+        <!--<select class="input-medium" ng-model="data.input-medium">
           <option>Name</option>
           <option>#Friends</option>
           <option>City</option>
@@ -27,11 +27,13 @@
           <option>Country</option>
         </select>
 
-        <select class="input-medium">
+        <select class="input-medium" ng-model="data.input-medium">
           <option value="+">Descending</option>
           <option value="-">Ascending</option>
-        </select>
-
+        </select>-->
+          
+        <select class="input-medium" ng-options='option.name for option in data.availableOptions track by option.name' ng-model='selectedData'></select>
+        <select class="input-medium" ng-options='option.dir for option in sorting.availableOptions track by option.dir' ng-model='selectedSort'></select>
       </div>
     </form>
 
@@ -53,7 +55,7 @@
           Friends: 1,367
         </div>
       </li>
-      <li class='friend' data-ng-repeat='friend in friends | filter:searchTerm | filter:searchLoc'>
+      <li class='friend' data-ng-repeat='friend in friends | filter:searchTerm | filter:searchLoc | orderBy:selectedData | orderBy:selectedSort'>
         <img class="profile-pic" src={{friend.pic_square}}>
           
         <h3>{{friend.name}}</h3>

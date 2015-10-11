@@ -3,10 +3,6 @@ var app = angular.module('angFriend');
 app.controller('friendController', function($scope) {
     
     $scope.searchTerm = '';
-    $scope.isAsc = true;
-    $scope.sortFriends = function() {
-        
-    };
     
     $scope.friends = [
   {
@@ -441,6 +437,24 @@ app.controller('friendController', function($scope) {
   }
 ];
 
+    $scope.data = {
+        availableOptions: [
+            {name: 'Name'},
+            {name: '#Friends'},
+            {name: 'City'},
+            {name: 'State'},
+            {name: 'Country'}
+        ]
+    };
+    $scope.selectedData = {name: 'Name'};
+            
+    $scope.sorting = {
+        availableOptions: [
+            {dir: 'Descending'},
+            {dir: 'Ascending'}
+        ]
+    };
+    $scope.selectedSort = {dir: 'Descending'};
 });
 
 
