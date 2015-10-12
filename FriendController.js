@@ -4,6 +4,17 @@ app.controller('friendController', function($scope) {
     
     $scope.searchTerm = '';
     
+    $scope.friendData = 'name';
+    $scope.sorting = "+";
+    
+    $scope.availableOptions = [
+            {name: 'Name', value: 'name'},
+            {name: '#Friends', value: 'friend_count'},
+            {name: 'City', value: 'current_location.city'},
+            {name: 'State', value: 'current_location.state'},
+            {name: 'Country', value: 'current_location.country'}
+        ];
+    
     $scope.friends = [
   {
     "name": "Preston McNeil",
@@ -436,25 +447,6 @@ app.controller('friendController', function($scope) {
     "$$hashKey": "02U"
   }
 ];
-
-    $scope.data = {
-        availableOptions: [
-            {name: 'Name'},
-            {name: '#Friends'},
-            {name: 'City'},
-            {name: 'State'},
-            {name: 'Country'}
-        ]
-    };
-    $scope.selectedData = {name: 'Name'};
-            
-    $scope.sorting = {
-        availableOptions: [
-            {dir: 'Descending'},
-            {dir: 'Ascending'}
-        ]
-    };
-    $scope.selectedSort = {dir: 'Descending'};
 });
 
 
